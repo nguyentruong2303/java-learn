@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="mappers.menuMapper">
+ 	<resultMap type="menuVO" id="menuResult">
+ 		<result property="muid" column="muid"/>
+ 		<result property="ctgid" column="ctgid"/>
+ 		<result property="muname" column="muname"/>
+ 		<result property="intro" column="intro"/>
+ 		<result property="details" column="details"/>
+ 		<result property="price" column="price"/>
+ 		<result property="currency" column="currency"/>
+ 	</resultMap>
+ <select id="selectAll" resultMap="menuResult">
+ <![CDATA[
+ 	select * from menu
+ ]]>
+ </select>
+ <select id="selectOne" resultMap="menuResult">
+ 	<![CDATA[
+ 		select * from menu
+ 		where muid = #{muid}
+ 	]]>
+ </select>
+ <insert id="insert" parameterType="menuVO">
+ 	<![CDATA[
+ 		insert into menu(ctgid,muname,intro,details,price,currency)
+ 		values(#{ctgid},#{muname},#{intro},#{details},#{price},#{currency})
+ 	]]>
+ </insert>
+ <update id="update" parameterType="menuVO">
+ 	<![CDATA[
+ 		update menu set
+ 		ctgid = #{ctgid},
+ 		muname = #{muname},
+ 		intro = #{intro},
+ 		details = #{details},
+ 		price = #{price},
+ 		currency = #{currency}
+ 		where muid = #{muid}
+ 	]]>
+ </update>
+ <delete id="delete" parameterType="int">
+ 	<![CDATA[
+ 		delete from menu
+ 		where muid = #{muid}
+ 	]]>
+ </delete>
+ 
+ 
+ 
+ 
+ </mapper>

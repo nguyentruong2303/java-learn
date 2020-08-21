@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="tp.kits3.livedinner.vo.Book" alias="bookVO"/>
+		<typeAlias type="tp.kits3.livedinner.vo.Tag" alias="tagVO"/>
+		<typeAlias type="tp.kits3.livedinner.vo.Post" alias="postVO"/>
+		<typeAlias type="tp.kits3.livedinner.vo.Category" alias="categoryVO"/>
+		<typeAlias type="tp.kits3.livedinner.vo.Menu" alias="menuVO"/>
+		<typeAlias type="tp.kits3.livedinner.vo.Contact" alias="contactVO"/>
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+			<property name="driver" value="org.mariadb.jdbc.Driver"/>
+			<property name="url" value="jdbc:mariadb://localhost:3306/livedinner"/>
+			<property name="username" value="root"/>
+			<property name="password" value="123123"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	
+	<mappers>
+		<mapper resource="mybatis/mappers/bookMapper.xml"/>
+		<mapper resource="mybatis/mappers/menuMapper.xml"/>
+		<mapper resource="mybatis/mappers/categoryMapper.xml"/>
+		<mapper resource="mybatis/mappers/tagMapper.xml"/>
+		<mapper resource="mybatis/mappers/postMapper.xml"/>
+		<mapper resource="mybatis/mappers/contactMapper.xml"/>
+	</mappers>
+	
+</configuration>
